@@ -40,6 +40,8 @@ class MobileDeviceFrame extends StatelessWidget {
 
   final Duration keyboardTransitionDuration;
 
+  final EdgeInsets padding;
+
   MobileDeviceFrame({
     @required this.platform,
     @required this.child,
@@ -56,6 +58,7 @@ class MobileDeviceFrame extends StatelessWidget {
     this.screenRadius = const BorderRadius.all(Radius.circular(8)),
     this.notch,
     this.sideButtons = const [],
+    this.padding,
   })  : assert(keyboard != null),
         assert(keyboardHeight != null),
         assert(isKeyboardVisible != null),
@@ -133,7 +136,7 @@ class MobileDeviceFrame extends StatelessWidget {
 
     return FittedBox(
       child: Padding(
-        padding: EdgeInsets.all(32),
+        padding: padding ?? EdgeInsets.all(32),
         child: Stack(
           alignment: Alignment.center,
           children: <Widget>[
